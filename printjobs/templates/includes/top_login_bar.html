@@ -1,0 +1,32 @@
+<section class="header-main border-bottom">
+    <div class="container">
+    <div style="width: 450px; margin:0 auto; padding: 10px;">
+        <div class="d-flex justify-content-end mb-3 mb-lg-0">
+            <div class="widget-header">
+                {% if user.id != None  %}
+                <small class="title text-muted">Welcome {{ user.first_name }}!</small>
+                {% if '/account/dashboard' != request.path %}<a href="{% url 'account:dashboard' %}" class="btn btn-outline-primary">Dashboard</a> <span class="text-info"> | </span>{% endif %}
+                <a href="{% url 'account:logout' %}" class="btn btn-outline-danger">Logout</a>
+                
+                {% else %}
+                   <h2>Welcome to Olabab's</h2>
+                   <small class="title text-muted">Welcome guest!</small>
+                   <p>Login or Create your account</p>
+                   <div class="mx-auto">
+                    <div>
+                        {% if '/account/login' != request.path %}<a href="{% url 'account:login' %}" class="btn btn-primary">Sign in</a>{% endif %}
+                        {% if '/account/signup' != request.path %} <span class="dark-transp"><span class="text-info"> |</span> <a href="{% url 'account:signup' %}" class="btn btn-primary"> Register</a>{% endif %}
+                   </div>
+                  </div>
+                {% endif %}
+            </div>
+            <a href="" class="widget-header pl-3 ml-3">
+            {% comment %} <a href="{% url '' %}" class="widget-header pl-3 ml-3"> {% endcomment %}
+                <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+            </a>
+        </div> <!-- widgets-wrap.// -->
+    </div> <!-- col.// -->
+    </div> <!-- row.// -->
+    </section>
+    </header>

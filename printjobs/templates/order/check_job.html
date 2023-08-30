@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card text-center">
+<div class="container mt-4">
+<div class="card-body">
+<h5 class="card-title">Check Order Availability</h5>
+<form method="GET" action="check" class="form-inline mb-3">
+  <label for="searchInput" class="mr-2">Search:</label>
+    <input type="text" name="q" placeholder="JOB ID" value="{{ request.GET.q }}"/>
+    <button type="submit" class="btn btn-primary ml-2">Check Job</button>
+</form>
+
+<div class="list-group">
+    {% for job in jobs %}
+    <a href="{% url 'printjob:unconf-order-details' job.id %}" class="list-group-item list-group-item-action">
+        <h5 class="mb-1">{{job.id}}</h5>
+        <p class="mb-1">{{job.customer}}</p>
+        <p class="mb-1">{{job.length}}</p>
+        <p class="mb-1">{{job.width}}</p>
+        <p class="mb-1">N {{job.price|floatformat:"2g"}}</p>
+        <p class="mb-1">{{job.status}}</p>
+        <p class="mb-1">{{job.quantity|pluralize}}</p>
+        <p class="mb-1">{{job.created_at|date}}</p>
+        <p class="mb-1">{{job.created_at|timesince}}</p>
+    </a>
+    {% empty %}
+
+
+    {% endfor %}
+</div>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+

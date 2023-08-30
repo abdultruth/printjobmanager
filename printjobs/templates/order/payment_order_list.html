@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<aside class="col-lg-8">
+    <div class="card">
+    <h5 class="card-header">Payment Method</h5>
+    <div class="card-body">
+        <p class="card-text">Cash</p>
+    </div>
+</div>
+<table class="table table-borderless">
+    <thead class="text-muted">
+        <tr class="small text-uppercase" >
+            <th scope="col"><b>Job Id</b> </th>
+            <th scope="col" >Job Type</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for joborder in orders %}
+            <tr>
+                <td class="card-text mb-0">{{ joborder.id }}</td>
+                <td class="card-text mb-0">{{ joborder.job_type }}</td>
+                <td class="card-text mb-0">{{ joborder.total_amount }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</aside>
+
+<aside class="col-lg-4">
+
+    <div class="card">
+    <div class="card-body">
+        <dl class="dlist-align">
+          <dt>Total price:</dt>
+          <dd class="text-right">N {{ total }}</dd>
+        </dl>
+        <dl class="dlist-align">
+          <dt>Tax:</dt>
+          <dd class="text-right">N {{ tax }}</dd>
+        </dl>
+        <dl class="dlist-align">
+          <dt>Total:</dt>
+          <dd class="text-right text-dark b"><strong>N {{ grand_total }}</strong></dd>
+        </dl>
+        <hr>
+        <p class="text-center mb-3">
+            <img src="" height="26">
+        </p>
+        <div id="paypal-button-container"> 
+         <!-- Paypal Button will Load -->
+        </div>
+    </div> <!-- card-body.// -->
+    </div> <!-- card.// -->
+
+</aside> <!-- col.// -->
+
+<!-- Add payment form or buttons here -->
+{% endblock %}

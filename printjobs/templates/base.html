@@ -1,0 +1,56 @@
+<doctypte! html>
+<html lang="en">
+<head>
+{% load static %}
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olabab's Concept</title>
+
+<!-- Bootstrap CSS -->
+<link href="{% static 'printjobs/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'printjobs/css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'printjobs/css/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'printjobs/css/print_styles.css' %}" media="print">
+
+</head>
+<body>
+   {% include 'includes/nav.html' %}
+   {% include 'includes/top_login_bar.html' %}
+   {% if '/' == request.path %}
+      <div class="jumbotron text-center">
+        <figure class="figure">
+        <img src="{% static 'printjobs/img/wrdp.jpg' %}" alt='image here ....' class="img-fluid"/>
+        <figcaption class="figure-caption">A caption for the above image.</figcaption>
+        <h1 class="display-4">Welcome to Olabab's Concept</h1>
+        <p class="myp">We deliver high-quality printing solutions for all your needs.</p>
+        <a class="btn btn-primary" href="#contact-us">Get in Touch</a>
+      </div>
+    </div>
+      {% include 'includes/about_us.html' %}
+      {% include 'includes/our_values.html' %}
+      {% include 'includes/contact_us.html' %}
+      {% include 'includes/portfolio.html' %}
+      
+   {% else %}
+   
+        {% block content %}
+
+        {% endblock %}
+
+    {% endif %}
+   {% include 'includes/footer.html' %}
+  <!-- JavaScript Bundle with Popper -->
+<script src="{% static 'printjobs/js/jquery-3.7.0/jquery.js' %}"></script>
+<script src="{% static 'printjobs/js/bootstrap.bundle.min.js' %}"></script>
+{% comment %} <script>
+  $(document).ready(function () {
+      $("nav a").click(function (event) {
+          event.preventDefault();
+          var href = $(this).attr("href");
+          $("#content").load(href + "-content");
+      });
+  }); {% endcomment %}
+</script>
+</body>
+</html>

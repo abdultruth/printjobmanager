@@ -1,0 +1,13 @@
+{% block content %}
+
+<aside class="col-md-4">
+    <ul class="list-group">
+        <li class="list-group-item {% if '/account/dashboard' == request.path %} active {% endif %}" aria-current="true">My Job Dashboard</li>
+        <li class="list-group-item">Today</li>
+        <li class="list-group-item">Week</li>
+        <li class="list-group-item">Month</li>
+        <li class="list-group-item">Year</li>
+      </ul>
+</aside>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    {% block content %}
+ <div class="container">
+    <h1>Print Job Manager</h1>
+    <table>
+        <tr>
+            <th><em>{{printer_name}}</em></th>
+    
+            <th>Job ID</th>
+            <th>Job Status</th>
+        </tr>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.printer_name }}</td>
+                <td>{{ job.job_id }}</td>
+                <td>{{ job.job_status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+ </div>
+{% endblock %}
+

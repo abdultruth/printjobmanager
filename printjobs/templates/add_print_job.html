@@ -1,0 +1,27 @@
+<h1>Add Print Job to Order</h1>
+<form method="post" id="add-print-job-form">
+    {% csrf_token %}
+    <label for="order">Select Order:</label>
+    <select name="order">
+        {% for order in orders %}
+            <option value="{{ order.id }}">{{ order.order_number }}</option>
+        {% endfor %}
+    </select><br>
+    <label for="job_name">Job Name:</label>
+    <input type="text" name="job_name" required><br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" required><br>
+    <button type="submit">Add Print Job</button>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $("#add-print-job-form").submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.post("/add-print-job-to-order/", formData, function (data) {
+                $("#content").html(data);
+            });
+        });
+    });
+</script>

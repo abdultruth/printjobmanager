@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card text-center">
+    <div class="container-sm">
+    <div class="card-body">
+    <h1 class="card-header">Paid Order Details Page</h2>
+    <div class="table-responsive">
+      <table class="table border-primary caption-top table-striped table-hover table-sm ">
+        <caption>Ordered Job</caption>
+      <thead>
+       <tr class="table-warning text-sm">
+           <th scope="col">JOB ID</th>
+           <th scope="col">CUSTOMER</th>
+           <th scope="col">JOB TYPE</th>
+           <th scope="col">LENGTH WIDTH</th>
+           <th scope="col">QUANTITY</th>
+           <th scope="col">PRICE</th>
+           <th scope="col">PAYMENT STATUS</th>
+           <th scope="col">PAYMENT METHOD</th>
+           <th scope="col">STAFF</th>
+           <th scope="col">DATE</th>
+           <th scope="col">TIME</th>
+        </tr>
+       </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="table-info">{{ orderjob.id }}</th>
+        <td class="table-info">{{ orderjob.customer|capfirst }}</td>
+        <td class="table-info">{{ orderjob.job_type }}</td>
+        <td class="table-info text-center">23 {{ orderjob.length }} X  24 {{ orderjob.width }} </td>
+        <td class="table-info">{{ orderjob.quantity }}</td>
+        <td class="table-danger">N {{ orderjob.price|floatformat:"2g" }}</td>
+        <td class="table-danger">PAID{{ orderjob.status }}</td>
+        <td class="table-info">{{ orderjob.payment}}</td>
+        <td class="table-danger">{{ orderjob.staff|capfirst }}</td>
+        <td class="table-info">{{ orderjob.created_at|date }}</td>
+        <td class="table-info">{{ orderjob.created_at|timesince }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+          <td colspan="4"></td>
+          <td class="table-success"><b>PRICE TOTAL =</b> </td>
+          <td class="table-info">N3,456</td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
+</div> 
+</div>
+</div>
+{% endblock %}

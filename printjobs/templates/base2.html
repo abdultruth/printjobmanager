@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Page App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <!-- Content will be loaded here using jQuery -->
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#content").load("/add-print-job/");
+        });
+    </script>
+</body>
+</html>

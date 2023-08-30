@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card text-center">
+<div class="container mt-4">
+<div class="card-body">
+<form method="POST" action="confirm">
+    {% csrf_token %}
+  <div class="vstack gap-2 col-md-2 mx-auto">
+    <select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+      <option value="confirmed" name="confirm">Confirm</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+
+  <div class="vstack gap-2 col-md-2 mx-auto">
+  <button type="button" class="btn btn-primary mb-3">Confirm Status</button>
+  <button type="button" class="btn btn-outline-danger mb-3">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9f9;
+    }
+
+    .navbar {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .jumbotron {
+        background-size: cover;
+        color: #ffff;
+    }
+
+    .section-heading {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .portfolio-item {
+        padding: 20px;
+    }
+
+    .contact-form {
+        margin-top: 30px;
+    }
+
+    .service {
+        padding: 20px;
+    }
+
+    .myp {
+        color:#007bff;
+    }

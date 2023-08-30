@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card text-center">
+    <div class="container-sm">
+    <div class="card-body">
+    <h1 class="card-header">Monthly Sales Report</h2>
+      <table class="table table-striped table-hover table-bordered border-primary">
+      <thead>
+       <tr class="table-warning text-center">
+           <th scope="col">YEAR</th>
+           <th scope="col">MONTH</th>
+           <th scope="col">TOTAL ORDER</th>
+           <th scope="col">TOTAL EXPENSES </th>
+           <th scope="col">TOTAL PROFIT</th>
+        </tr>
+       </thead>
+    
+    <tbody>
+      <tr>
+        <th scope="row" class="table-info text-center">{{year}}</th>
+        <td class="table-info text-center">{{month}}</td>
+        <td class="table-info text-center">{{total_job_order_amount}}</td>
+        <td class="table-info text-center">N{{total_expenses |floatformat:"2g"}}</td>
+        <td class="table-danger text-center">N{{profit |floatformat:"2g"}}</td>
+        
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+{% endblock %}
